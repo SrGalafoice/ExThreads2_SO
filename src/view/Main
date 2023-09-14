@@ -1,0 +1,24 @@
+public class Main {
+    static int i, j;
+    public static void main(String[] args) {
+        int M[][] = new int[3][5];
+        coisa(M);
+
+        // System.out.println("CALCULANDO... :P");
+
+        for (i = 0; i < 3; i++){
+            Thread threadm = new ThreadMatriz(M[i], i);
+            threadm.start();
+        }
+    }
+    public static void coisa(int M[][]){
+        Random aleatorio = new Random();
+        for (i = 0; i < 3; i++){
+            for (j = 0; j < 5; j++){
+                M[i][j] = aleatorio.nextInt(10);
+                System.out.println("Valor da linha " + i+" e coluna " +j+" = "+ M[i][j]);
+            }
+        }
+        return;
+    }
+}
